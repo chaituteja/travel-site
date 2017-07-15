@@ -1166,8 +1166,7 @@ a {
 
 .site-header__menu-icon {
     width: 20px;
-    height: 20px;
-    background-color: #ffffff;
+    height: 19px;
     position: absolute;
     top: 10px;
          z-index: 10;
@@ -1175,13 +1174,70 @@ a {
 
     }
 
+.site-header__menu-icon::before {
+        content: "";
+        position: absolute;
+        top:0;
+        left:0;
+        width: 20px;
+        height: 3px;
+         background-color: #ffffff;
+        -webkit-transform-origin: 0 0;
+                transform-origin: 0 0;
+        -webkit-transition: tranform 0.3s ease-out;
+        transition: tranform 0.3s ease-out;
+      }
+
+.site-header__menu-icon__middle {
+         position: absolute;
+         top:8px;
+         left:0;
+         width: 20px;
+         height: 3px;
+         background-color: #ffffff;
+         -webkit-transition: all 0.3s ease-out;
+         transition: all 0.3s ease-out;
+        -webkit-transform-origin: 0 50%;
+                transform-origin: 0 50%;
+     }
+
+.site-header__menu-icon::after {
+         content: "";
+         position: absolute;
+         bottom:0;
+         left:0;
+         width: 20px;
+         height: 3px;
+         background-color: #ffffff;
+         -webkit-transform-origin: 0 100%;
+                 transform-origin: 0 100%;
+         -webkit-transition: tranform 0.3s ease-out;
+         transition: tranform 0.3s ease-out;
+     }
+
 @media (min-width:800px) {
 
 .site-header__menu-icon {
-    display:none
+        display:none
 
     }
     }
+
+.site-header__menu-icon--close-x::before {
+        -webkit-transform: rotate(45deg) scaleX(1.25);
+                transform: rotate(45deg) scaleX(1.25);
+        }
+
+.site-header__menu-icon--close-x .site-header__menu-icon__middle {
+             opacity: 0;
+             -webkit-transition: scaleX(0);
+             transition: scaleX(0);
+         }
+
+.site-header__menu-icon--close-x::after {
+             -webkit-transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+                     transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+         }
 
 .site-header__menu-content {
         opacity: 0;
